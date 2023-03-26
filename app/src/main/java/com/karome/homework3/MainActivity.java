@@ -17,9 +17,12 @@ public class MainActivity extends AppCompatActivity {
     // Создание объекта для пенсионеров
     BusTicket busTicketElder = new BusTicketDiscount(70, 5, 30);
 
+    float busTicketTotalPrice = busTicket.ticketPriceAll() + busTicketElder.ticketPriceAll() + busTicketKid.ticketPriceAll();
+
     private TextView busTicketOut;
     private TextView busTicketKidOut;
     private TextView busTicketElderOut;
+    private TextView busTicketTotalPriceOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,11 @@ public class MainActivity extends AppCompatActivity {
         busTicketOut = findViewById(R.id.busTicketOut);
         busTicketKidOut = findViewById(R.id.busTicketKidOut);
         busTicketElderOut = findViewById(R.id.busTicketElderOut);
+        busTicketTotalPriceOut = findViewById(R.id.busTicketPriceOut);
 
         busTicketOut.setText(Float.toString(busTicket.ticketPriceAll()) + " монет");
         busTicketKidOut.setText(Float.toString(busTicketKid.ticketPriceAll()) + " монет");
         busTicketElderOut.setText(Float.toString(busTicketElder.ticketPriceAll()) + " монет");
+        busTicketTotalPriceOut.setText(Float.toString(busTicketTotalPrice) + " монет");
     }
 }
